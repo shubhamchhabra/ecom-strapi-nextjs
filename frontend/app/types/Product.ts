@@ -62,8 +62,3 @@ interface ImageFormat {
     };
   }
   
-  interface ProductsResponse {
-    data: Product[];
-    meta: Meta;
-  }
-  
