@@ -10,7 +10,13 @@ interface ImageFormat {
     sizeInBytes: number;
     url: string;
   }
-  
+  interface Localization {
+    // Define the properties of the localization object
+    id: number;
+    locale: string;
+    // Add other properties as needed
+  }
+
   interface Image {
     id: number;
     documentId: string;
@@ -50,7 +56,7 @@ interface ImageFormat {
     locale: string;
     Image: Image;
     AlternateImages: Image[];
-    localizations: any[];
+    localizations: Localization[];
   }
   
   interface Meta {
