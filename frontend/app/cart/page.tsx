@@ -1,4 +1,5 @@
 "use client";
+import Image from 'next/image';
 // app/cart/page.tsx
 import { useState } from 'react';
 
@@ -45,7 +46,7 @@ const CartPage = () => {
           <div className="space-y-6">
             {cart.map((product) => (
               <div key={product.id} className="flex items-center justify-between">
-                <img src={product.image} alt={product.name} className="w-20 h-20 object-cover rounded" />
+                <Image src={product.image} alt={product.name} className="w-20 h-20 object-cover rounded" />
                 <div className="flex-1 ml-4">
                   <h2 className="text-xl font-semibold">{product.name}</h2>
                   <p className="text-gray-500">Price: ${product.price.toFixed(2)}</p>

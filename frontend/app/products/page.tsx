@@ -1,8 +1,10 @@
 // app/products/page.tsx
 "use client"
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { useEffect, useState } from "react";
+import { Product } from "../types/Product";
 
 
 export default function ProductsPage() {
@@ -30,6 +32,7 @@ export default function ProductsPage() {
     }
 
     fetchProducts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -42,7 +45,7 @@ export default function ProductsPage() {
           {products.length > 0 && products.map((product) => (
             <Link key={product.id} href={`/products/${product.documentId}`}>
               <div key={product.id} className="border p-4 rounded-lg">
-                <img src={`${API_URL}${product.Image.url}`} srcSet={`${API_URL}${product.Image.url}`} alt={product.Name} className="w-full h-40 object-cover" />
+                <Image src={`${API_URL}${product.Image.url}`} alt={product.Name} className="w-full h-40 object-cover" />
                 <h2 className="mt-2 text-lg font-medium">{product.Name}</h2>
                 <p className="text-gray-600">${product.Price.toFixed(2)}</p>
               </div>

@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Rating from "@/app/components/Rating";
+import Image from "next/image";
+import { Product } from "@/app/types/Product";
 
 export default function ProductDetailPage() {
   const [product, setProduct] = useState<Product | null>(null);
@@ -37,7 +39,7 @@ export default function ProductDetailPage() {
   return (
     <main className="p-8">
       <div className="flex flex-col md:flex-row items-start gap-8">
-        <img
+        <Image
           src={`${baseUrl}${product?.Image?.url}`}
           alt={product?.Name}
           className="w-full md:w-1/2 h-auto object-cover"
