@@ -10,12 +10,13 @@ import { Product } from "../types/Product";
 export default function ProductsPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
+  const API_URL = 'https://ecom-strapi-nextjs.onrender.com';
   useEffect(() => {
     // Fetch products from the API (we'll implement this next)
     async function fetchProducts() {
       setLoading(true);
       try {
-        const res = await fetch(`${process.env.API_URL}/api/products?populate=*`);
+        const res = await fetch(`${API_URL}/api/products?populate=*`);
         if (!res.ok) {
           notFound(); // Use next/navigation to show a 404 page if the article is not found
         }
@@ -44,7 +45,7 @@ export default function ProductsPage() {
           {products.length > 0 && products.map((product) => (
             <Link key={product.id} href={`/products/${product.documentId}`}>
               <div key={product.id} className="border p-4 rounded-lg">
-                <Image src={`${process.env.API_URL}${product.Image.url}`} alt={product.Name} className="w-full h-40 object-cover" />
+                <Image src={`${API_URL}${product.Image.url}`} alt={product.Name} className="w-full h-40 object-cover" />
                 <h2 className="mt-2 text-lg font-medium">{product.Name}</h2>
                 <p className="text-gray-600">${product.Price.toFixed(2)}</p>
               </div>

@@ -12,13 +12,14 @@ export default function ProductDetailPage() {
   const router = useRouter();
   const params = useParams();
   const documentId = params?.id;
+  const baseUrl = "https://ecom-strapi-nextjs.onrender.com";
   useEffect(() => {
     if (!documentId) return;
 
     async function fetchProduct() {
       setLoading(true);
       try {
-        const response = await fetch(`${process.env.API_URL}/api/products/${documentId}?populate=*`);
+        const response = await fetch(`${baseUrl}/api/products/${documentId}?populate=*`);
         if (!response.ok) throw new Error("Product not found");
         const res = await response.json();
         setProduct(res?.data);
@@ -39,7 +40,7 @@ export default function ProductDetailPage() {
     <main className="p-8">
       <div className="flex flex-col md:flex-row items-start gap-8">
         <Image
-          src={`${process.env.API_URL}${product?.Image?.url}`}
+          src={`${baseUrl}${product?.Image?.url}`}
           alt={product?.Name}
           className="w-full md:w-1/2 h-auto object-cover"
         />
