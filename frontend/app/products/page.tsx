@@ -10,7 +10,7 @@ import { Product } from "../types/Product";
 export default function ProductsPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:1337';
+  const API_URL = 'https://ecom-strapi-nextjs.onrender.com' || 'http://localhost:1337';
   useEffect(() => {
     // Fetch products from the API (we'll implement this next)
     async function fetchProducts() {

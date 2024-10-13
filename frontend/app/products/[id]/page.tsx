@@ -12,7 +12,7 @@ export default function ProductDetailPage() {
   const router = useRouter();
   const params = useParams();
   const documentId = params?.id;
-  const baseUrl = "http://localhost:1337";
+  const baseUrl = "https://ecom-strapi-nextjs.onrender.com" || "http://localhost:1337";
   useEffect(() => {
     if (!documentId) return;
 
